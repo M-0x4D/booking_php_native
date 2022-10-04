@@ -1,0 +1,143 @@
+.pill-group{
+height: 36px;
+top: 0;
+bottom: 0;
+position: absolute;
+left: 0;
+right: 0;
+display: flex;
+flex-direction: row;
+width: 100%;
+margin: auto;
+}
+.pill-group input[ type= checkbox]{
+    opacity: 0;
+    width: 0;
+    position: fixed;
+}
+form{
+    width: 800px;
+}
+
+.pill-group .time9_12{
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+}
+.pill-group .time3_5{
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    border-right: 2px solid #5183f5;
+}
+.box{
+    color: gray;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    cursor: pointer;
+    background: white;
+    border-right: 0;
+    border: 2px solid gray;
+}
+
+
+
+.box:hover{
+    background: #b1c8fb;
+  color: #00AAFF;
+}
+
+input[type=checkbox]:checked + label{
+    background: #0a46cb;
+  color: white;
+}
+.pill-container{
+
+    position: relative;
+    height: 30px;
+    margin-top: 10px;
+    width: 50%;
+    min-width: 400px;
+}
+input[type=text]{
+    padding: 10px;
+    width: 66%;
+    border:1px solid #0a46cb;
+}
+input[type= date]{
+    padding: 10px;
+    width: 66%;
+    border:1px solid #0a46cb;
+}
+.form-group{
+    display: flex;
+    padding: 10px;
+}
+
+.form-group label{
+    text-align: right;
+    padding: 10px;
+    font-weight: 600;
+    width: 33%;
+}
+main{
+    padding: 100px;
+}
+label3{
+    width: 33%;
+}
+@media only screen and (max-width : 860px){
+    .form-group label{
+        display: block;
+        text-align: left;
+        width: 100%;
+    }
+
+    .label3{
+        width: 100%;
+    }
+    .form-group {
+        display: block;
+    }
+}
+.label3{
+    width: 33%;
+}
+main#booking h1{
+    padding-bottom: 50px;
+    padding-left: 200px;
+}
+main#booking input[type=submit]{
+    padding: 10px;
+    margin: 50px;
+    font-size: 20px;
+    background:#FFD400;
+	color:black;
+}
+main#booking button{
+    padding: 10px;
+    margin: 50px;
+    font-size: 20px;
+    background:#FFD400;
+	color:black;
+}
+
+
+input.valid[type=text]{
+    outline: 3px solid rgba(203, 255, 203, 1);
+    border: 1px solid rgba(255, 100, 100, 1);
+}
+input.valid[type=text]:focus{
+    outline: 3px solid rgba(203, 255, 203, 1);
+    border: 1px solid rgba(255, 100, 100, 1);
+}
+input.invalid[type=text]{
+    outline: 3px solid rgba(255, 100, 100, 1);
+    border: 1px solid rgba(255, 100, 100, 1);
+}
+input.invalid[type=text]:focus{
+    outline: 3px solid rgba(255, 100, 100, 1);
+    border: 1px solid rgba(255, 100, 100, 1);
+}
+
