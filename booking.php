@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
         <meta charset="utf-8">
         <title>Booking Page</title>
         <link href="css/style.css" rel="stylesheet" type="text/css">
@@ -16,7 +19,7 @@
 
     echo ' <div  class="special">
     <a>Welcome Mr ' . $_SESSION["username"] . ' </a>
-   <a href="logout.php"><span>logout</span></a>&nbsp;&nbsp;&nbsp;
+    <a class="btn btn-light" href="logout.php" role="button">logout</a>
     For emergency call<span>0388556621</span></div>
       <header><img alt="logo" src="img/logo.png"/><span class="logo" ><b>Russel</b><i>Street Medical</i></span>
           <div class="empty" >&nbsp; </div><img class="marker"  alt="Map Marker"  src="img/marker.png" /><span class="adress" > 340 Russel Street,Melbourne<br /><i>Victoria, Australia</i> </span>             
@@ -33,6 +36,7 @@
               <form action="booking_server.php" method="post">
                   <h1>Booking</h1>
                  
+                  
                   <div class="form-group">
                       <label for="Pateint_Id">Patient Id:</label>
                       <input name="Pateint_Id" id="Pateint_Id" type="text"
@@ -76,11 +80,11 @@
 
                   </div>
 
-                  <div class="flex">
+                  <div class="flex row ">
                       <div class="empty label"></div>
 
-                      <input type="submit"></input>
-                      <button formnovalidate>Submit without validation</button>
+                      <button class="col-md-4 center btn btn-primary" type="submit" class="registerbtn">submit</button>
+                      <button class="col-md-4 center btn btn-danger" type="submit" formnovalidate>Submit without validation</button>
 
                      <a href="index.html">
                       <button>Home Page</button>
@@ -152,7 +156,8 @@
     
     ?>
        
-
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
        
     </body>
 

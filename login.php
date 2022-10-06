@@ -1,125 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: white;
-}
 
-* {
-  box-sizing: border-box;
-}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-/* Add padding to containers */
-.container {
-  padding: 16px;
-  background-color: white;
-}
-
-/* Full-width input fields */
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-}
-
-input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-/* Overwrite default styles of hr */
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
-}
-
-/* Set a style for the submit button */
-.registerbtn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
-
-.registerbtn:hover {
-  opacity: 1;
-}
-
-/* Add a blue text color to links */
-a {
-  color: dodgerblue;
-}
-
-/* body {
-  background-color: #E6E6FA;
-} */
-
-/* Set a grey background color and center the text of the "sign in" section */
-.signin {
-  background-color: #f1f1f1;
-  text-align: center;
-}
-</style>
-</style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
+
 <body>
-    
-    <form action="administration.php" method="POST">
 
-        <input type="hidden" name="action" value="login">
-        <div class="container">
-          <h1>Log In</h1>
-          <p>Please fill in this form to go to your account.</p>
-          <hr>
+  <form  class="form-control" action="administration.php" method="POST">
+
+    <input  type="hidden" name="action" value="login">
+    <div class="container">
+
+    <div>
+
+    <h1 class="mb-5 md-5">Log In</h1>
+      <p>Please fill in this form to go to your account.</p>
+    </div>
       
-          <label><b>User Name</b></label>
-          <input type="text" placeholder="Enter username" name="username" id="Username" required>
-      
-          <label ><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="password" id="password" required>
-      
-          
-          <hr>
-          <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-      
-          <button type="submit" class="registerbtn">Signin</button>
-        </div>
+      <hr>
+
+      <div class=" mb-2 container text-danger">
+       <?php
+        if (isset($_GET['uerror'])) {
+          echo $_GET['uerror'];
+        }
+        else{
+          if (isset($_GET['err'])) {
+            echo $_GET['err'];
+          }
+        }
         
-        <div class="container signin">
-          <p>Don't have an account? <a href="register.php">Register</a>.</p>
-        </div>
-      </form>
+        ?>
+       </div>
+
+    <div>
+      <label><b>User Name</b></label>
+
+      <input class="form-control"  type="text" placeholder="Enter username" name="username" id="uname" required>
+     
+      </div>
+     
+     <label><b>Password</b></label>
+      <input class="form-control" type="password" placeholder="Enter Password" name="password" id="password" required>
+
+
+      <hr>
+
+ 
+<button class="col-md-4 center btn btn-primary" type="submit" class="registerbtn">Signin</button>
+<button class="col-md-4 center btn btn-danger" type="submit" formnovalidate>Submit without validation</button>
+
+    <div class="container signin">
+      <p>Don't have an account? <a href="register.php">Register</a>.</p>
+    </div>
+    </div>
+  </form>
 
 
 
-    <!-- <form action="administration.php" method="POST">
+  <!-- <form action="administration.php" method="POST">
         <input type="hidden" name="action" value="login">
         <input type="text" name="username" placeholder="Username">
         <input type="text" name="password" placeholder="Password">
         <button type="submit">Login</button>
     </form> -->
 
-     <!-- <?php  if ($_GET['error']) {
-      echo $_GET['error'];
-    }
-    else
-    {
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script> -->
+  <!-- <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script> -->
   
-    } ?>  -->
+  <!-- <script>
+var fname = document.getElementById("fname");
+fname.addEventListener("input", () => {
+  if (fname.validity.tooLong || fname.validity.tooShort || fname.validity.valueMissing) {
+    fname.setCustomValidity("User Name must be 2-8 characters.");
+    fname.reportValidity();
+  } else { fname.setCustomValidity(""); }
+});
+
+var iChars = "!@#$%^&*()+=-[]\\\';,./{}|\":<>?";
+
+for (var i = 0; i < document.formname.fieldname.value.length; i++) {
+    if (iChars.indexOf(document.formname.fieldname.value.charAt(i)) != -1) {
+        alert ("Your username has special characters. \nThese are not allowed.\n Please remove them and try again.");
+        return false;
+    }
+  }
+</script> -->
+
+<script>
+
+const getInputError = (inputName) => {
+    return errors.array().find(i => i.param === inputName || i.body === inputName);
+  }
+  res.render('form', { getInputError });
+</script>
 
 </body>
+
 </html>

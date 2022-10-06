@@ -4,11 +4,22 @@
 
 function login(Array $data)
 {
+
+if (preg_match('/[\^£$%&*()}{@#~?><>,|=_+¬-]/' , $_POST['username']) || preg_match('/[\^£$%&*()}{@#~?><>,|=_+¬-]/' , $_POST['password'])) {
+    # code...
+    header("location:"."login.php?err=username or password should not has special character") ;
+}
+
+else{
+
+
     $success = FALSE;
 
     $username = $_POST['username'];  
     $password = $_POST['password']; 
 
+        # code...
+    
     $arr = array($username , $password);
 
    // Read from file
@@ -35,13 +46,19 @@ if ($success) {
     $access_denied = array($username , $date = date('d-m-y h:i:s'));
     
     file_put_contents('access_attempts.txt', implode( '|',$access_denied). "\n", FILE_APPEND | LOCK_EX);
-    header("location:"."login.php");
+    header("location:"."login.php?err=username or password is wrong");
 
 
 }
-      
+        
+}
+
 
 }
+
+
+
+
 
 
 
@@ -58,15 +75,24 @@ if ($success) {
 
 function register(Array $data)
 {
+    if (strlen($_POST['username']) >= 8) {
+       
+   if (preg_match('/[\^£$%&*()}{@#~?><>,|=_+¬-]/' , $_POST['username']) || preg_match('/[\^£$%&*()}{@#~?><>,|=_+¬-]/' , $_POST['password']) || preg_match('/[\^£$%&*()}{@#~?><>,|=_+¬-]/' , $_POST['confirm_password'])) {
 
+    header('location:'.'register.php?uerror=username or password or confirm_password should not has special character');
+
+}
+else {
     if ($_POST['password'] == $_POST['confirm_password']) {
        
         $success = FALSE;
         $username = $_POST['username'];  
-        $password = $_POST['password']; 
-    
-    
-        $userlist = file('users.txt');
+        $password = $_POST['password'];
+        $confirm_password = $_POST['confirm_password'] ;
+
+        if (($password == $confirm_password)) {
+
+            $userlist = file('users.txt');
     
     
     foreach ($userlist as $user) {
@@ -103,6 +129,26 @@ function register(Array $data)
         
         header('location:'.'register.php');
     }
+        }
+        else {
+            header('location:'.'register.php?error=two passwords are not the same');
+        }
+
+
+   
+    }
+    
+    
+
+    }
+        
+    
+    
+    else {
+        header('location:'.'register.php?uerror=username should be equal or more than 8 characters');
+    }
+    
+        
 
     
   

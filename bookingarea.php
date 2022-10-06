@@ -1,27 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
 </head>
 <body>
 <?php
@@ -30,17 +17,21 @@ session_start();
 if (isset($_SESSION["loggedin"])) {
       
     echo '
-    <a>Welcome Mr ' . $_SESSION["username"] . ' </a>
-   <a href="logout.php"><span>logout</span></a>&nbsp;&nbsp;&nbsp;
+  <div class=" p-3 mb-2 bg-dark text-white mb-3">
+  <a>Welcome Mr ' . $_SESSION["username"] . ' </a>
+  <a class="btn btn-primary" href="logout.php" role="button">logout</a>
+  </div>
     <h2>Booking Table</h2>
 
-    <table>
+    <table class="table">
+    <thead class="thead-dark">
       <tr >
         <th >patient_id</th>
         <th >date</th>
         <th>time</th>
         <th>reason</th>
       </tr>
+      </thead>
      
      ';
     
@@ -71,7 +62,8 @@ else {
 
 
 ?>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 
 
 </body>
